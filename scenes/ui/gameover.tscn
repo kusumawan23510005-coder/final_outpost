@@ -32,3 +32,5 @@ offset_top = 375.0
 offset_right = 576.0
 offset_bottom = 406.0
 text = "Main Lagi"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

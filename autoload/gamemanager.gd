@@ -1,11 +1,16 @@
 extends Node
 
+
 signal score_changed(new_score: int)
 signal wave_changed(current_wave: int, max_waves: int)
+signal health_changed(new_health: int)
 
 var score: int = 0
 var current_wave: int = 0
 var max_waves: int = 6
+
+var max_health: int = 5
+var health: int = 5
 
 func add_score(amount: int) -> void:
 	score += amount
@@ -16,7 +21,16 @@ func set_wave(wave: int, max_w: int) -> void:
 	max_waves = max_w
 	wave_changed.emit(current_wave, max_waves)
 
+func take_damage(amount: int) -> void:
+	health -= amount
+	health = max(0, health)
+	health_changed.emit(health)
+
 func reset_game() -> void:
 	score = 0
 	current_wave = 0
+	health = max_health
+	
 	score_changed.emit(score)
+	wave_changed.emit(current_wave, max_waves)
+	health_changed.emit(health)

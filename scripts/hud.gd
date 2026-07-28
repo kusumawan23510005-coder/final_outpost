@@ -9,12 +9,23 @@ func _ready() -> void:
 		return
 		
 	if GameManager:
-		GameManager.connect("score_changed", Callable(self, "_on_score_changed"))
-		GameManager.connect("wave_changed", Callable(self, "_on_wave_changed"))
+		
+		if GameManager.has_signal("health_changed"):
+			if not GameManager.health_changed.is_connected(_on_health_changed):
+				GameManager.health_changed.connect(_on_health_changed)
+	
+			_on_health_changed(GameManager.health)
+
+		
+		if GameManager.has_signal("score_changed") and not GameManager.score_changed.is_connected(_on_score_changed):
+			GameManager.score_changed.connect(_on_score_changed)
+			
+		if GameManager.has_signal("wave_changed") and not GameManager.wave_changed.is_connected(_on_wave_changed):
+			GameManager.wave_changed.connect(_on_wave_changed)
 	else:
 		printerr("FATAL ERROR: GameManager belum terdaftar di Autoload!")
 
-func update_health_display(current_health: int) -> void:
+func _on_health_changed(current_health: int) -> void:
 	if is_instance_valid(health_label):
 		health_label.text = "Health: " + str(current_health)
 

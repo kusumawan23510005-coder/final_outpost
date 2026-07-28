@@ -19,6 +19,14 @@ var fire_timer: float = 0.0
 func _ready() -> void:
 	add_to_group("player")
 	current_health = max_health
+	
+	# Sinkronkan nilai darah awal ke GameManager & HUD
+	if GameManager:
+		GameManager.health = current_health
+		GameManager.max_health = max_health
+		if GameManager.has_signal("health_changed"):
+			GameManager.health_changed.emit(current_health)
+			
 	health_changed.emit(current_health)
 
 func _physics_process(delta: float) -> void:
@@ -29,7 +37,6 @@ func _physics_process(delta: float) -> void:
 
 	var direction: Vector2 = Input.get_vector("kiri", "kanan", "atas", "bawah")
 	
-	# Cek apakah pemain menahan tombol Shift (atau tombol lari Anda)
 	var is_running: bool = Input.is_key_pressed(KEY_SHIFT)
 	var current_speed: float = run_speed if is_running else walk_speed
 	
@@ -48,13 +55,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		if velocity != Vector2.ZERO:
 			if is_instance_valid(animated_sprite):
-				# Pilih animasi "run" jika sedang lari, atau "walk" jika jalan biasa
 				if is_running:
 					animated_sprite.play("run")
 				else:
 					animated_sprite.play("walk")
 					
-				# [PERBAIKAN] Jangan komentar baris ini agar badan player menghadap arah gerakan
 				if direction.x != 0:
 					animated_sprite.flip_h = direction.x < 0
 		else:
@@ -82,6 +87,12 @@ func take_damage(amount: int) -> void:
 		return 
 		
 	current_health -= amount
+	current_health = max(0, current_health)
+	
+	# PENTING: Meneruskan pembaruan damage ke GameManager agar HUD terbarui!
+	if GameManager:
+		GameManager.take_damage(amount)
+		
 	health_changed.emit(current_health)
 	print("WARNING: Player terkena serangan! Sisa darah: ", current_health)
 	

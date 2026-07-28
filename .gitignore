@@ -1,10 +1,18 @@
-# Godot 4+ specific ignores
+# GODOT 4.X OFFICIAL GITIGNORE
 .godot/
-.import/
-export.cfg
-export_presets.cfg
 
-# Compiled game binaries & temp files
+export_presets.cfg
+export.cfg
+
+override.cfg
+
 *.exe
 *.pck
+*.apk
+*.aab
+*.zip
 *.TMP
+
+.mono/
+data_*/
+mono_crash.*.json

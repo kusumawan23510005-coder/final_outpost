@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://brsafii3mx5wj" path="res://scenes/ui/zombie_spawner.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dabf4edsojo2v" path="res://scenes/world/jalananan1.jpg" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bqq0jch3gah1s" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dg7dtbxgjklyt" path="res://zombie.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bqq0jch3gah1s" path="res://scenes/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dg7dtbxgjklyt" path="res://scenes/zombie/zombie.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://tbyyaj5lwv3p" path="res://assets/background/1.png" id="5_a8run"]
 [ext_resource type="PackedScene" uid="uid://cjshvyh1q5wi" path="res://hud.tscn" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cgclgoy4o832s" path="res://assets/background/2.png" id="6_ouso4"]
+[ext_resource type="Texture2D" uid="uid://bhkpmi8p74dyi" path="res://assets/background/3.png" id="7_blune"]
+[ext_resource type="Texture2D" uid="uid://cuhxube3f1vvj" path="res://assets/background/4.png" id="8_th5th"]
+[ext_resource type="Texture2D" uid="uid://o8vctmh5lnhv" path="res://assets/background/5.png" id="9_7smn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ra5lk"]
 size = Vector2(2563.7188, 89.25)
@@ -90,6 +95,58 @@ position = Vector2(106, 240)
 
 [node name="zombie" parent="World" unique_id=325002829 instance=ExtResource("3_h2yge")]
 position = Vector2(1327.9999, 305)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="World" unique_id=1919472106]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="World/ParallaxBackground" unique_id=1192265338]
+motion_scale = Vector2(0.05, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="1_png" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer" unique_id=260642423]
+position = Vector2(-3, -254)
+scale = Vector2(2, 2)
+texture = ExtResource("5_a8run")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="World/ParallaxBackground" unique_id=222278931]
+motion_scale = Vector2(0.15, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="2_png" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer2" unique_id=481972455]
+position = Vector2(-2.5, -253)
+scale = Vector2(2, 2)
+texture = ExtResource("6_ouso4")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="World/ParallaxBackground" unique_id=1751460956]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="3_png" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer3" unique_id=664842371]
+position = Vector2(-2.5, -253)
+scale = Vector2(2, 2)
+texture = ExtResource("7_blune")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="World/ParallaxBackground" unique_id=1193129550]
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="4_png" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer4" unique_id=321348892]
+position = Vector2(-2.5, -253)
+scale = Vector2(2, 2)
+texture = ExtResource("8_th5th")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="World/ParallaxBackground" unique_id=197896907]
+motion_scale = Vector2(0.7, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="5_png" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer5" unique_id=658363471]
+position = Vector2(-2.5, -253)
+scale = Vector2(2, 2)
+texture = ExtResource("9_7smn1")
+centered = false
 
 [node name="Node" type="Node" parent="." unique_id=778933779]
 

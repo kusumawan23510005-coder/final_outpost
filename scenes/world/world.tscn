@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bi07wj83fepmd"]
+
+[node name="Node2D" type="Node2D" unique_id=1609519172]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=953075077]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2009271694]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=937526685]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1481141582]
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1957743801]
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=424099148]
