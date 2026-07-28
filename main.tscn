@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dgyax8g278fyv"]
+
+[ext_resource type="Script" uid="uid://brsafii3mx5wj" path="res://scenes/ui/zombie_spawner.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dabf4edsojo2v" path="res://scenes/world/jalananan1.jpg" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bqq0jch3gah1s" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dg7dtbxgjklyt" path="res://zombie.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cjshvyh1q5wi" path="res://hud.tscn" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra5lk"]
+size = Vector2(2563.7188, 89.25)
+
+[sub_resource type="Animation" id="Animation_7dm0k"]
+resource_name = "soldier"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ig7tw"]
+_data = {
+&"soldier": SubResource("Animation_7dm0k")
+}
+
+[node name="Main" type="Node2D" unique_id=1974679205]
+y_sort_enabled = true
+
+[node name="World" type="Node2D" parent="." unique_id=1884182985]
+y_sort_enabled = true
+
+[node name="Ground" type="StaticBody2D" parent="World" unique_id=1391600872]
+light_mask = 8
+visibility_layer = 9
+position = Vector2(-35, 57)
+collision_layer = 8
+collision_mask = 0
+
+[node name="batasbawah" type="CollisionShape2D" parent="World/Ground" unique_id=32817894]
+z_as_relative = false
+position = Vector2(603, 398)
+shape = SubResource("RectangleShape2D_ra5lk")
+
+[node name="bataskiri" type="CollisionShape2D" parent="World/Ground" unique_id=830849903]
+z_as_relative = false
+position = Vector2(-1972, 295)
+shape = SubResource("RectangleShape2D_ra5lk")
+
+[node name="bataskanan" type="CollisionShape2D" parent="World/Ground" unique_id=2032083477]
+z_as_relative = false
+position = Vector2(3176, 290)
+shape = SubResource("RectangleShape2D_ra5lk")
+
+[node name="batasatas" type="CollisionShape2D" parent="World/Ground" unique_id=1517161810]
+z_as_relative = false
+position = Vector2(615, 86)
+shape = SubResource("RectangleShape2D_ra5lk")
+
+[node name="jalan" type="Sprite2D" parent="World/Ground" unique_id=397849293]
+position = Vector2(634.99994, 295.5)
+scale = Vector2(1.4163702, 1.4657534)
+texture = ExtResource("1_h2yge")
+
+[node name="jalan2" type="Sprite2D" parent="World/Ground" unique_id=599369227]
+position = Vector2(-558, 295.5)
+scale = Vector2(1.4163702, 1.4657534)
+texture = ExtResource("1_h2yge")
+
+[node name="jalan3" type="Sprite2D" parent="World/Ground" unique_id=2192973]
+position = Vector2(1829, 295.5)
+scale = Vector2(1.4163702, 1.4657534)
+texture = ExtResource("1_h2yge")
+
+[node name="PlayerSpawner" type="Marker2D" parent="World" unique_id=1610559705]
+
+[node name="ZombieSpawner" type="Node2D" parent="World" unique_id=629859017]
+position = Vector2(111, -41)
+script = ExtResource("1_1bvp3")
+zombie_scene = ExtResource("3_h2yge")
+
+[node name="SpawnTimer" type="Timer" parent="World/ZombieSpawner" unique_id=599042860]
+wait_time = 3.0
+autostart = true
+
+[node name="SpawnPoint" type="Marker2D" parent="World/ZombieSpawner" unique_id=1899573079]
+position = Vector2(1597, 419)
+
+[node name="SpawnPoint2" type="Marker2D" parent="World/ZombieSpawner" unique_id=164993857]
+position = Vector2(1594, 378)
+
+[node name="SpawnPoint3" type="Marker2D" parent="World/ZombieSpawner" unique_id=1910331498]
+position = Vector2(1645, 361)
+
+[node name="Player" parent="World" unique_id=1078190690 instance=ExtResource("1_ig7tw")]
+position = Vector2(106, 240)
+
+[node name="zombie" parent="World" unique_id=325002829 instance=ExtResource("3_h2yge")]
+position = Vector2(1327.9999, 305)
+
+[node name="Node" type="Node" parent="." unique_id=778933779]
+
+[node name="WaveManager" type="Node" parent="Node" unique_id=1123623271]
+
+[node name="SpawnManager" type="Node" parent="Node" unique_id=20369898]
+
+[node name="UpgradeManager" type="Node" parent="Node" unique_id=2002224173]
+
+[node name="AudioManager" type="Node" parent="Node" unique_id=567035625]
+
+[node name="Ui" type="CanvasLayer" parent="." unique_id=2103613312]
+
+[node name="HUD" parent="Ui" unique_id=55840585 instance=ExtResource("5_lquwl")]
+
+[node name="Pausemenu" type="Control" parent="Ui" unique_id=50486254]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Upgradepanel" type="Control" parent="Ui" unique_id=100688922]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOver" type="Control" parent="Ui" unique_id=1674450207]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 224.0
+offset_top = -96.0
+offset_right = 264.0
+offset_bottom = -56.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1701308361]
+root_node = NodePath("../Ui")
+libraries/ = SubResource("AnimationLibrary_ig7tw")
+
+[connection signal="timeout" from="World/ZombieSpawner/SpawnTimer" to="World/ZombieSpawner" method="_on_spawn_timer_timeout"]
