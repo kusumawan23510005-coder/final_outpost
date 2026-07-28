@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bqq0jch3gah1s" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dg7dtbxgjklyt" path="res://scenes/zombie/zombie.tscn" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://tbyyaj5lwv3p" path="res://assets/background/1.png" id="5_a8run"]
-[ext_resource type="PackedScene" uid="uid://cjshvyh1q5wi" path="res://hud.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cjshvyh1q5wi" path="res://scenes/ui/hud.tscn" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://cgclgoy4o832s" path="res://assets/background/2.png" id="6_ouso4"]
 [ext_resource type="Texture2D" uid="uid://bhkpmi8p74dyi" path="res://assets/background/3.png" id="7_blune"]
 [ext_resource type="Texture2D" uid="uid://cuhxube3f1vvj" path="res://assets/background/4.png" id="8_th5th"]
