@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brsafii3mx5wj" path="res://scenes/ui/zombie_spawner.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dabf4edsojo2v" path="res://scenes/world/jalananan1.jpg" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bqq0jch3gah1s" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bqq0jch3gah1s" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dg7dtbxgjklyt" path="res://zombie.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cjshvyh1q5wi" path="res://hud.tscn" id="5_lquwl"]
 

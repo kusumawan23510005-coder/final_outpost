@@ -3,3 +3,8 @@
 .import/
 export.cfg
 export_presets.cfg
+
+# Compiled game binaries & temp files
+*.exe
+*.pck
+*.TMP
